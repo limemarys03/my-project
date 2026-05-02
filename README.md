@@ -1,19 +1,18 @@
-# Hi there, I'm Lime! 👋
+# Hello! I'm Lime! // Technical DevLog
 
-I'm a beginner Python developer, currently on **Day 15** of my coding journey. 🚀
+I'm a Python student (Day 15). This space is used to document my progress and experiment with different coding concepts.
 
-## 🐍 My First Project: "Siori - Memory AI"
-I'm working on a text-based interactive story with a "memory" system. 
-- **Features:** File handling, anti-cheat backup system, and dynamic dialogue.
-- **Current status:** Learning how to manage game states and user input.
+## 🔬 Current Experiments: Persistence & Logic
+Currently exploring how to handle data storage and player-character interaction logic in terminal-based environments.
 
-## 🛠️ Tech Stack
-- **Language:** Python (learning core basics)
-- **Tools:** GitHub, VS Code (или то, где вы пишете код)
+### Technical Milestones:
+- **State Persistence:** Implemented a system to save and load variables using `.txt` and `.dat` files.
+- **Integrity Checks:** Developed a basic hidden backup mechanism to maintain data consistency.
+- **Input Processing:** Experimenting with dynamic dialogue flow based on numerical "scores".
 
-## 📫 Let's connect!
-- Check out my **Pinterest** link in the profile!
-- I'm open to tips and advice for beginners.
+## 🛠 Tech Stack
+- **Language:** Python 3.x
+- **Focus:** Logic, File I/O, Error Handling
 
 ---
-*“Coding is like a game, and I'm just leveling up.”* 🎮
+*This is a personal repository for tracking my learning journey. Progress is documented as it happens.*
