@@ -1,0 +1,76 @@
+import time
+import os
+import sys
+
+# --- 1. НАСТРОЙКА ДВИЖКА ---
+file_path = "memory.txt" # Исправлено: fiile_path -> file_path
+backup_path = ".hidden_memory.dat"
+
+def say(name, text, speed=0.04):
+    print(f"\n[{name}]: ", end="", flush=True)
+    for char in text: # Исправлено: shair -> char
+        print(char, end="", flush=True) # Исправлено: shar -> char
+        time.sleep(speed)
+    print()
+    
+def make_choice(question, options): # Исправлено: choise -> choice
+    print(f"\n??? {question}")
+    for i, option in enumerate(options, 1):
+        print(f"{i}. {option}")
+    return input("Ваш выбор (номер): ") # Исправлен отступ и лишние кавычки
+     
+# --- 2. ПРОВЕРКА ПАМЯТИ И ПРИВЕТСТВИЕ ---
+if os.path.exists(file_path):
+    with open(file_path, "r") as f:
+        try:
+            sin_score = int(f.read())
+        except ValueError:
+            sin_score = 0
+    
+    if os.path.exists(backup_path):
+        with open(backup_path, "r") as f:
+            try:
+                backup_score = int(f.read())
+            except ValueError:
+                backup_score = 0
+        
+        if sin_score < backup_score:
+            say("Сиори", "Твои жалкие попытки подделать мою память... я вижу их насквозь.")
+            sin_score = backup_score 
+
+    say("Сиори", "Снова ты... Принес что-нибудь интересное?")
+else:
+    sin_score = 0
+    print("--- [Система]: Сиори видит тебя впервые ---")
+    say("Сиори", "Ну и зачем ты здесь торчишь? Ищешь неприятностей?")
+
+# --- 3. ИГРОВОЙ ПРОЦЕСС ---
+choice = make_choice("Ваше действие:", ["Принести извинения", "Промолчать", "Оскорбить"])
+
+if choice == "1":
+    if sin_score > 0:
+        sin_score -= 1
+        say("Сиори", "Твои извинения... пахнут фальшью, но я приму их.")
+    else:
+        say("Сиори", "Тебе не за что извиняться. Пока что.")
+elif choice == "3":
+    sin_score += 2
+    say("Сиори", "Твои слова... я вырежу их на твоей памяти.")
+else:
+    say("Сиори", "Твоё молчание так же скучно, как твоя душа.")
+
+# --- 4. ФИНАЛ И СОХРАНЕНИЕ ---
+if sin_score > 5:
+    say("Сиори", "Я больше не желаю тебя видеть. Проваливай.")
+    # Сбрасываем прогресс при плохой концовке, чтобы не зациклиться
+    if os.path.exists(file_path): os.remove(file_path)
+    if os.path.exists(backup_path): os.remove(backup_path)
+    print("--- ПЛОХАЯ КОНЦОВКА: Изгнание во тьму ---")
+    sys.exit()
+
+with open(file_path, "w") as f:
+    f.write(str(sin_score))
+with open(backup_path, "w") as f:
+    f.write(str(sin_score))
+
+print(f"\n(Прогресс сохранен. Уровень греха: {sin_score})")
