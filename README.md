@@ -11,7 +11,7 @@ Currently exploring how to handle data storage and player-character interaction 
 - **Input Processing:** Experimenting with dynamic dialogue flow based on numerical "scores".
 
 ## 🛠 Tech Stack
-- **Language:** Python 3.x
+- **Language:** Python
 - **Focus:** Logic, File I/O, Error Handling
 
 ---
