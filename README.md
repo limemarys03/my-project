@@ -1,6 +1,6 @@
 # Hello! I'm Lime! // Technical DevLog
 
-I'm a Python student (Day 15). This space is used to document my progress and experiment with different coding concepts.
+I'm a Python student. This space is used to document my progress and experiment with different coding concepts.
 
 ## 🔬 Current Experiments: Persistence & Logic
 Currently exploring how to handle data storage and player-character interaction logic in terminal-based environments.
